@@ -1,0 +1,17 @@
+﻿version: '3.9'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: my_user
+      POSTGRES_PASSWORD: my_password
+      POSTGRES_DB: my_project
+    ports:
+      - '5432:5432'
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - '6379:6379'

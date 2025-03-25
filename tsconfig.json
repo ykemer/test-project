@@ -1,0 +1,53 @@
+{
+  "ts-node": {
+    "files": true
+  },
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "allowJs": false,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "noUncheckedIndexedAccess": false,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "lib": ["ES2020"],
+    "target": "ES2020",
+    "module": "commonjs",
+    "types": ["node", "jest"],
+    "incremental": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+      "libs/*": ["src/libs/*"],
+      "/libs/*": ["src/libs/*"]
+    },
+    "outDir": "./build",
+    "outFile": "./build/bundle.js",
+    "declaration": true,
+    "sourceMap": true
+  },
+  "include": ["src/**/*", "src/**/*.d.ts"],
+  "exclude": ["node_modules", "src/**/*.acceptance.ts", "src/**/*.unit.ts",  "src/scripts/*"],
+  "files": [
+    "src/types/index.d.ts"
+  ]
+}
