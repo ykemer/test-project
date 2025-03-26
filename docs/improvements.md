@@ -5,3 +5,4 @@
 3. Improve typing for logging
 4. Move infrastructure configuration to the separate bounded context
 5. Add e2e tests
+6. Split controllers and routers. Pass to controllers validated type (validate by using ajv)

@@ -13,7 +13,7 @@ import {NotFoundError} from 'libs/dto';
 import {createHealthService, redisClient, sequelize} from 'libs/tools';
 
 const applyAppConfiguration = (app: Express) => {
-  app.set('trust proxy', true);
+  app.set('trust proxy', '1');
   app.use(json());
   configureSecurity(app);
   app.use(generateTraceId);

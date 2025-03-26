@@ -37,9 +37,6 @@
     "baseUrl": ".",
     "paths": {
       "*": ["src/*"],
-      "libs/*": ["src/libs/*"],
-      "apps/*": ["src/apps/*"],
-      "config/*": ["src/config/*"],
     },
     "outDir": "./build",
     "declaration": true,

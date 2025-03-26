@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node build/server.js",
     "build": "tsc",
-    "dev": "ts-node-dev --require ./tsconfig-paths-bootstrap.js --poll src/server.ts",
+    "dev": "ts-node-dev --require ./tsconfig-paths-bootstrap.js --watch src --poll src/server.ts",
     "migrage": "npx sequelize-cli db:migrate",
     "seed-db": "npx sequelize-cli db:seed:all",
     "lint": "eslint . --ext .ts",

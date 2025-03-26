@@ -10,12 +10,16 @@ const errorHandler = (err: Error, req: Request, res: Response, _next: NextFuncti
 
   if (err instanceof CustomError) {
     logger.warn({
+      url: req.originalUrl,
+      method: req.method,
       message: err.message,
       stack: err.stack,
       traceId: req.traceId,
     });
   } else {
     logger.error({
+      url: req.originalUrl,
+      method: req.method,
       message: err.message,
       stack: err.stack,
       traceId: req.traceId,
