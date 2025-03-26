@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --require ./tsconfig-paths-bootstrap.js --poll src/server.ts",
+    "start": "node build/server.js",
     "build": "tsc",
+    "dev": "ts-node-dev --require ./tsconfig-paths-bootstrap.js --poll src/server.ts",
     "migrage": "npx sequelize-cli db:migrate",
     "seed-db": "npx sequelize-cli db:seed:all",
     "lint": "eslint . --ext .ts",
@@ -26,6 +27,7 @@
     "express-rate-limit": "^7.5.0",
     "express-validator": "^7.2.1",
     "jsonwebtoken": "^9.0.2",
+    "module-alias": "^2.2.3",
     "pg": "^8.14.1",
     "pg-hstore": "^2.3.4",
     "redis": "^4.7.0",
@@ -61,9 +63,15 @@
     "sequelize-cli": "^6.6.2",
     "sqlite3": "^5.1.7",
     "ts-jest": "^29.2.6",
+    "ts-loader": "^9.5.2",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.27.0"
+  },
+  "_moduleAliases": {
+    "config": "build/config",
+    "libs": "build/libs",
+    "apps": "build/apps"
   }
 }

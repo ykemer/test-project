@@ -1,9 +1,9 @@
 import express, {Request, Response} from 'express';
 
-import {requireAuth} from '/config/infrastructure/middleware/require-auth';
 
 import {getUserProfileCreator} from 'apps/users/common/application/useCases/getUserProfile/getUserProfile';
 import {userRepositoryCreator} from 'apps/users/common/infrastructure/persistence/user-repository';
+import {requireAuth} from 'config/infrastructure/middleware/require-auth';
 
 const router = express.Router();
 

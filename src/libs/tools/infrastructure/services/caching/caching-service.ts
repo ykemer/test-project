@@ -1,4 +1,5 @@
-﻿import {CachingService, redisClient} from '/libs/tools';
+﻿import {redisClient} from './redis-client';
+import {CachingService} from '../../../domain/services/caching';
 
 const DEFAULT_EXPIRATION = 3600;
 

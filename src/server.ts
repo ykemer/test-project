@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
 
+import 'module-alias/register';
 import {applyAppConfiguration} from 'config/infrastructure';
 import {connectRedis} from 'libs/tools';
 

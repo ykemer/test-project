@@ -3,7 +3,7 @@ import path from 'node:path';
 
 import winston from 'winston';
 
-import {Logger} from 'libs/tools';
+import {Logger} from '../../../domain/services/logger';
 
 let loggerInstance: Logger | null = null;
 

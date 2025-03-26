@@ -1,6 +1,6 @@
 ﻿import {Sequelize} from 'sequelize';
 
-import {HealthService, RedisClientHealthService} from 'libs/tools';
+import {HealthService, RedisClientHealthService} from '../../domain';
 
 const createHealthService = (db: Sequelize, redisClient: RedisClientHealthService): HealthService => ({
   checkDatabase: async () => {

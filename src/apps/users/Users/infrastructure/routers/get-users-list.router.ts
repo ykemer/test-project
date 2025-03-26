@@ -1,12 +1,12 @@
 import express, {Request, Response} from 'express';
 import {matchedData, query} from 'express-validator';
 
-import {validateRequest} from '/config/infrastructure/middleware/validate-request';
 
 import {listUsersCreator} from 'apps/users/Users/application/useCases/listUsers/list-users';
 import {userCacheKeys} from 'apps/users/common/infrastructure/caching/cache-keys';
 import {userRepositoryCreator} from 'apps/users/common/infrastructure/persistence/user-repository';
 import {requireRole} from 'config/infrastructure/middleware';
+import {validateRequest} from 'config/infrastructure/middleware/validate-request';
 import {BadRequestError, USER_ROLES} from 'libs/dto';
 import {cachingServiceCreator, isNumber} from 'libs/tools';
 

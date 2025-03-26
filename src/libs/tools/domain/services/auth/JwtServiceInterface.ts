@@ -1,5 +1,6 @@
 ﻿import {UserDto} from 'libs/dto';
-import {JwtTokenResponse} from 'libs/tools';
+
+import {JwtTokenResponse} from '../../models';
 
 type JwtServiceInterface = {
   getSignedJwtTokenResponse: (payload: UserDto) => JwtTokenResponse;

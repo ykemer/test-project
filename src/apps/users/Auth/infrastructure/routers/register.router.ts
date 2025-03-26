@@ -1,10 +1,10 @@
 import express, {Request, Response} from 'express';
 import {body} from 'express-validator';
 
-import {validateRequest} from '/config/infrastructure/middleware/validate-request';
 
 import {userCacheKeys} from 'apps/users/common/infrastructure/caching/cache-keys';
 import {userRepositoryCreator} from 'apps/users/common/infrastructure/persistence/user-repository';
+import {validateRequest} from 'config/infrastructure/middleware/validate-request';
 import {cachingServiceCreator, passwordServiceCreator} from 'libs/tools';
 
 import {registerUserCreator} from '../../application/useCases/register/register';

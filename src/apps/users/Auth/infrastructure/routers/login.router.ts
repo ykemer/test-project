@@ -1,10 +1,10 @@
 import express, {Request, Response} from 'express';
 import {body} from 'express-validator';
 
-import {validateRequest} from '/config/infrastructure/middleware/validate-request';
 
 import {loginUserCreator} from 'apps/users/Auth/application/useCases/login/login';
 import {userRepositoryCreator} from 'apps/users/common/infrastructure/persistence/user-repository';
+import {validateRequest} from 'config/infrastructure/middleware/validate-request';
 import {jwtServiceCreator, passwordServiceCreator} from 'libs/tools';
 
 const router = express.Router();

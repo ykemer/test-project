@@ -38,15 +38,15 @@
     "paths": {
       "*": ["src/*"],
       "libs/*": ["src/libs/*"],
-      "/libs/*": ["src/libs/*"]
+      "apps/*": ["src/apps/*"],
+      "config/*": ["src/config/*"],
     },
     "outDir": "./build",
-    "outFile": "./build/bundle.js",
     "declaration": true,
     "sourceMap": true
   },
   "include": ["src/**/*", "src/**/*.d.ts"],
-  "exclude": ["node_modules", "src/**/*.acceptance.ts", "src/**/*.unit.ts",  "src/scripts/*"],
+  "exclude": ["node_modules", "src/**/*.acceptance.ts", "src/**/*.unit.ts","src/**/*.integration.ts"],
   "files": [
     "src/types/index.d.ts"
   ]

@@ -1,8 +1,8 @@
-﻿import {UserModel} from '/config/infrastructure/db/user';
-import {userRepositoryCreator} from './user-repository';
+﻿import {userRepositoryCreator} from './user-repository';
 
 import {Sequelize} from 'sequelize';
 import {USER_ROLES} from 'libs/dto';
+import {UserModel} from 'libs/tools';
 
 describe('User Repository', () => {
   let sequelize: Sequelize;

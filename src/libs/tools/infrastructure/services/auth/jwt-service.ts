@@ -1,7 +1,9 @@
 ﻿import jwt from 'jsonwebtoken';
 
 import {UserRole} from 'libs/dto';
-import {getEnvironmentVariables, isObject, isString, JwtServiceInterface} from 'libs/tools';
+
+import {JwtServiceInterface} from '../../../domain/services/auth';
+import {getEnvironmentVariables, isObject, isString} from '../../utils';
 const jwtServiceCreator = (): JwtServiceInterface => {
   const [JWT_SIGN_KEY, JWT_KEY_ISSUER, JWT_KEY_AUDIENCE, JWT_EXPIRATION_TIME] = getEnvironmentVariables([
     'JWT_SIGN_KEY',
