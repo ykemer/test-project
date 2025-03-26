@@ -1,17 +1,17 @@
 ﻿import {json} from 'body-parser';
 import {Express} from 'express';
 
-import {configureRouters} from 'config/infrastructure/configureRouters';
+
+import {accessLogger} from 'config/infrastructure//middleware/access-logger';
+import {currentUser} from 'config/infrastructure//middleware/current-user';
+import {errorHandler} from 'config/infrastructure//middleware/error-handler';
 import {healthRouter} from 'config/infrastructure/health/health-routes';
+import {generateTraceId} from 'config/infrastructure/middleware';
+import {configureRouters} from 'config/infrastructure/routes/configureRouters';
+import {configureSecurity} from 'config/infrastructure/security/security';
 import {swaggerRouter} from 'config/infrastructure/swagger/swagger';
 import {NotFoundError} from 'libs/dto';
 import {createHealthService, redisClient, sequelize} from 'libs/tools';
-
-import {accessLogger} from './middleware/access-logger';
-import {currentUser} from './middleware/current-user';
-import {errorHandler} from './middleware/error-handler';
-import {generateTraceId} from './middleware/generate-trace-id';
-import {configureSecurity} from './security';
 
 const applyAppConfiguration = (app: Express) => {
   app.use(json());
