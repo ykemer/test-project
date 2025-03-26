@@ -41,6 +41,6 @@ You can import the insomnia file in the docs folder to test the endpoints
 4. To run e2e tests, run `npm run test:e2e:run`
 
 
-## Documentation
+## Additional
 [View Improvement Suggestions](docs/improvements.md)
 
