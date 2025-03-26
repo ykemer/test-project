@@ -40,7 +40,7 @@ describe('Crypto API Client Integration Tests', () => {
     mockLogger = {
       error: jest.fn(),
       info: jest.fn(),
-      warning: jest.fn(),
+      warn: jest.fn(),
     };
 
     // Create client with mocks

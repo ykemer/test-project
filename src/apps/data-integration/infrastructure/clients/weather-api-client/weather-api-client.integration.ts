@@ -43,7 +43,7 @@ describe('Weather API Client Integration Tests', () => {
     mockLogger = {
       error: jest.fn(),
       info: jest.fn(),
-      warning: jest.fn(),
+      warn: jest.fn(),
     };
 
     // Set up environment variables
