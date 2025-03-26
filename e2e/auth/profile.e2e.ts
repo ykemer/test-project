@@ -30,16 +30,17 @@ describe('Current User', () => {
   });
 
   it('should return current user with valid token', async () => {
-    const response = await request(app).get('/api/v1/auth/profile').set('Authorization', `Bearer ${authToken}`);
+    const {body} = await request(app)
+      .get('/api/v1/auth/profile')
+      .set('Authorization', `Bearer ${authToken}`)
+      .expect(200);
 
-    expect(response.status).toBe(200);
-    expect(response.body).toHaveProperty('email', 'current@example.com');
-    expect(response.body).toHaveProperty('name', 'Test');
-    expect(response.body).toHaveProperty('role', 'user');
+    expect(body).toHaveProperty('email', 'current@example.com');
+    expect(body).toHaveProperty('name', 'Test');
+    expect(body).toHaveProperty('role', 'user');
   });
 
   it('should reject with invalid token', async () => {
-    const response = await request(app).get('/api/v1/auth/profile').set('Authorization', 'Bearer invalidtoken');
-    expect(response.status).toBe(401);
+    return request(app).get('/api/v1/auth/profile').set('Authorization', 'Bearer invalidtoken').expect(401);
   });
 });

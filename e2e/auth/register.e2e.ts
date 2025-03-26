@@ -15,44 +15,51 @@ describe('Registration', () => {
   });
 
   it('should register a new user successfully', async () => {
-    const response = await request(app).post('/api/v1/auth/register').send({
-      email: 'test@example.com',
-      password: 'password123',
-      name: 'User',
-    });
-
-    expect(response.status).toBe(201);
+    return await request(app)
+      .post('/api/v1/auth/register')
+      .send({
+        email: 'test@example.com',
+        password: 'password123',
+        name: 'User',
+      })
+      .expect(201);
   });
 
   it('should return 409 for duplicate email', async () => {
     // First registration
-    await request(app).post('/api/v1/auth/register').send({
-      email: 'duplicate@example.com',
-      password: 'password123',
-      name: 'Test',
-    });
+    await request(app)
+      .post('/api/v1/auth/register')
+      .send({
+        email: 'duplicate@example.com',
+        password: 'password123',
+        name: 'Test',
+      })
+      .expect(201);
 
     // Attempt duplicate registration
-    const response = await request(app).post('/api/v1/auth/register').send({
-      email: 'duplicate@example.com',
-      password: 'password123',
-      name: 'Test',
-    });
+    const {body} = await request(app)
+      .post('/api/v1/auth/register')
+      .send({
+        email: 'duplicate@example.com',
+        password: 'password123',
+        name: 'Test',
+      })
+      .expect(409);
 
-    expect(response.status).toBe(409);
-    expect(response.body).toHaveProperty('title');
-    expect(response.body.title).toBe('User already exists');
+    expect(body).toHaveProperty('title', 'User already exists');
   });
 
   it('should return 400 if request validation fails', async () => {
-    const response = await request(app).post('/api/v1/auth/register').send({
-      email: '',
-      name: '',
-      password: '',
-    });
+    const {body} = await request(app)
+      .post('/api/v1/auth/register')
+      .send({
+        email: '',
+        name: '',
+        password: '',
+      })
+      .expect(400);
 
-    expect(response.status).toBe(400);
-    expect(response.body.errors).toEqual([
+    expect(body.errors).toEqual([
       {
         message: 'Email must be valid',
         field: 'email',

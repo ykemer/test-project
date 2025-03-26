@@ -3,6 +3,7 @@
 import {sequelize} from '/libs/tools';
 import {getConfiguredApp} from '/config/infrastructure';
 import {UserDto} from '../../src/libs/dto';
+// @ts-ignore
 import {prepareTestsWithAdminUser} from './generate-admin-user';
 
 describe('Users API', () => {
@@ -23,25 +24,25 @@ describe('Users API', () => {
   });
 
   it('should return list of users when authenticated as admin', async () => {
-    const {body, status} = await request(app).get('/api/v1/users').set('Authorization', `Bearer ${adminToken}`);
+    const {body} = await request(app).get('/api/v1/users').set('Authorization', `Bearer ${adminToken}`).expect(200);
 
-    expect(status).toBe(200);
     expect(body.data.length).toEqual(2);
     expect(body.page).toEqual(1);
     expect(body.pageSize).toEqual(10);
     expect(body.total).toEqual(2);
     expect(body.hasNextPage).toBe(false);
+
     const users = body.data as UserDto[];
     expect(users.some(user => user.email === 'admin@gmail.com')).toBe(true);
     expect(users.some(user => user.email === 'regular@example.com')).toBe(true);
   });
 
   it('should return paginated data', async () => {
-    const {body, status} = await request(app)
+    const {body} = await request(app)
       .get('/api/v1/users?page=1&pageSize=1')
-      .set('Authorization', `Bearer ${adminToken}`);
+      .set('Authorization', `Bearer ${adminToken}`)
+      .expect(200);
 
-    expect(status).toBe(200);
     expect(body.data.length).toEqual(1);
     expect(body.page).toEqual(1);
     expect(body.pageSize).toEqual(1);
@@ -50,11 +51,11 @@ describe('Users API', () => {
   });
 
   it('should return paginated data for second page', async () => {
-    const {body, status} = await request(app)
+    const {body} = await request(app)
       .get('/api/v1/users?page=2&pageSize=1')
-      .set('Authorization', `Bearer ${adminToken}`);
+      .set('Authorization', `Bearer ${adminToken}`)
+      .expect(200);
 
-    expect(status).toBe(200);
     expect(body.data.length).toEqual(1);
     expect(body.page).toEqual(2);
     expect(body.pageSize).toEqual(1);
@@ -63,11 +64,11 @@ describe('Users API', () => {
   });
 
   it('should return paginated data when page is out of range', async () => {
-    const {body, status} = await request(app)
+    const {body} = await request(app)
       .get('/api/v1/users?page=999&pageSize=1')
-      .set('Authorization', `Bearer ${adminToken}`);
+      .set('Authorization', `Bearer ${adminToken}`)
+      .expect(200);
 
-    expect(status).toBe(200);
     expect(body.data.length).toEqual(0);
     expect(body.page).toEqual(999);
     expect(body.pageSize).toEqual(1);
@@ -76,11 +77,9 @@ describe('Users API', () => {
   });
 
   it('should reject access without admin privileges', async () => {
-    const response = await request(app).get('/api/v1/users').set('Authorization', `Bearer ${regularUserToken}`);
-    expect(response.status).toBe(403);
+    return request(app).get('/api/v1/users').set('Authorization', `Bearer ${regularUserToken}`).expect(403);
   });
   it('should reject access without authorization', async () => {
-    const response = await request(app).get('/api/v1/users');
-    expect(response.status).toBe(401);
+    return request(app).get('/api/v1/users').expect(401);
   });
 });

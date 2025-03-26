@@ -20,22 +20,25 @@ describe('Login', () => {
   });
 
   it('should login successfully with valid credentials', async () => {
-    const response = await request(app).post('/api/v1/auth/login').send({
-      email: 'login@example.com',
-      password: 'password123',
-    });
+    const {body} = await request(app)
+      .post('/api/v1/auth/login')
+      .send({
+        email: 'login@example.com',
+        password: 'password123',
+      })
+      .expect(200);
 
-    expect(response.status).toBe(200);
-    expect(response.body).toHaveProperty('access_token');
-    expect(response.body).toHaveProperty('expires_in');
+    expect(body).toHaveProperty('access_token');
+    expect(body).toHaveProperty('expires_in');
   });
 
   it('should fail with invalid credentials', async () => {
-    const response = await request(app).post('/api/v1/auth/login').send({
-      email: 'login@example.com',
-      password: 'wrongpassword',
-    });
-
-    expect(response.status).toBe(400);
+    return request(app)
+      .post('/api/v1/auth/login')
+      .send({
+        email: 'login@example.com',
+        password: 'wrongpassword',
+      })
+      .expect(400);
   });
 });

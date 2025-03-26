@@ -2,6 +2,7 @@
 
 import {sequelize} from '/libs/tools';
 import {getConfiguredApp} from '/config/infrastructure';
+// @ts-ignore
 import {prepareTestsWithAdminUser} from './generate-admin-user';
 
 describe('Users API', () => {
@@ -26,41 +27,32 @@ describe('Users API', () => {
   it('should return a specific user when authenticated as admin', async () => {
     const response = await request(app)
       .get(`/api/v1/users/${regularUserId}`)
-      .set('Authorization', `Bearer ${adminToken}`);
+      .set('Authorization', `Bearer ${adminToken}`)
+      .expect(200);
 
-    expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('email', 'regular@example.com');
   });
 
   it('should return 404 for non-existent user', async () => {
     const nonExistentId = '99999999-9999-9999-9999-999999999999';
 
-    const response = await request(app)
-      .get(`/api/v1/users/${nonExistentId}`)
-      .set('Authorization', `Bearer ${adminToken}`);
-
-    expect(response.status).toBe(404);
+    return request(app).get(`/api/v1/users/${nonExistentId}`).set('Authorization', `Bearer ${adminToken}`).expect(404);
   });
 
   it('should return 400 error if input is not GUID', async () => {
     const nonExistentId = 'not-guid';
 
-    const response = await request(app)
-      .get(`/api/v1/users/${nonExistentId}`)
-      .set('Authorization', `Bearer ${adminToken}`);
-
-    expect(response.status).toBe(400);
+    return request(app).get(`/api/v1/users/${nonExistentId}`).set('Authorization', `Bearer ${adminToken}`).expect(400);
   });
 
   it('should reject access without admin privileges', async () => {
-    const response = await request(app)
+    return request(app)
       .get(`/api/v1/users/${regularUserId}`)
-      .set('Authorization', `Bearer ${regularUserToken}`);
-    expect(response.status).toBe(403);
+      .set('Authorization', `Bearer ${regularUserToken}`)
+      .expect(403);
   });
 
   it('should reject access without authorization', async () => {
-    const response = await request(app).get(`/api/v1/users/${regularUserId}`);
-    expect(response.status).toBe(401);
+    return request(app).get(`/api/v1/users/${regularUserId}`).expect(401);
   });
 });
