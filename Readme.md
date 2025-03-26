@@ -18,10 +18,15 @@
 7. Run `npm run migrage` to run migrations
 8. Run `npm run seed-db` to seed db with data. (Creates admin user. Username and password is in .env file)
 9. Run `npm run dev` to start the server
+10. Run `npm run build` to build the project
+11. Run `npm start` to start the server in production mode
 
 
 ## Endpoints
 To check endpoint documentation, run the server and go to `http://localhost:3000/api-docs`
+
+### Insomnia
+You can import the insomnia file in the docs folder to test the endpoints
 
 ## Code style
 1. For code quality and style, we use eslint and prettier

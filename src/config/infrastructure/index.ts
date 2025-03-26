@@ -1,7 +1,6 @@
 ﻿import {json} from 'body-parser';
 import {Express} from 'express';
 
-
 import {accessLogger} from 'config/infrastructure//middleware/access-logger';
 import {currentUser} from 'config/infrastructure//middleware/current-user';
 import {errorHandler} from 'config/infrastructure//middleware/error-handler';
@@ -14,6 +13,7 @@ import {NotFoundError} from 'libs/dto';
 import {createHealthService, redisClient, sequelize} from 'libs/tools';
 
 const applyAppConfiguration = (app: Express) => {
+  app.set('trust proxy', true);
   app.use(json());
   configureSecurity(app);
   app.use(generateTraceId);
