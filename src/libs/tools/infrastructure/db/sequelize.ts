@@ -1,6 +1,6 @@
 ﻿import {Sequelize} from 'sequelize';
 
-import {getEnvironmentVariables} from 'libs/tools';
+import {getEnvironmentVariables} from '../utils';
 
 const [DB_DATABASE, DB_USERNAME, DB_PASSWORD, DB_HOST] = getEnvironmentVariables([
   'DB_DATABASE',

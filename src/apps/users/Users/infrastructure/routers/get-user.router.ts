@@ -1,12 +1,12 @@
 import express, {Request, Response} from 'express';
 import {param} from 'express-validator';
 
-import {userCacheKeys} from 'apps/users/Users/infrastructure/caching/cache-keys';
 import {getUserProfileCreator} from 'apps/users/common/application/useCases/getUserProfile/getUserProfile';
 import {userRepositoryCreator} from 'apps/users/common/infrastructure/persistence/user-repository';
 import {requireRole, validateRequest} from 'config/infrastructure/middleware';
 import {USER_ROLES} from 'libs/dto';
 import {cachingServiceCreator} from 'libs/tools';
+import {userCacheKeys} from 'apps/users/common/infrastructure/caching/cache-keys';
 
 const router = express.Router();
 const cachingService = cachingServiceCreator();

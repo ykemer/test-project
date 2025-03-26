@@ -3,7 +3,7 @@ dotenv.config();
 import express from 'express';
 
 import {applyAppConfiguration} from 'config/infrastructure';
-import {connectRedis} from 'config/infrastructure/caching/redis-client';
+import {connectRedis} from 'libs/tools';
 
 const app = express();
 

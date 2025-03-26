@@ -1,4 +1,4 @@
 ﻿export * from './auth';
 export * from './caching';
-export * from './HealthService';
+export * from './health';
 export * from './logger';

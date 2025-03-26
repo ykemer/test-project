@@ -15,13 +15,25 @@
 4. Install ts-node globally by running `npm install -g ts-node`
 5. Run `docker-compose up -d` in infra folder to start the database and redis
 6. Create a `.env` file in the root folder and add the variables from `.env.dist` file. Update what is required
-7. Run `npm run sync-db` to create the tables in the database
-8. Run `npm run create-admin-user` to create admin user
+7. Run `npm run migrage` to run migrations
+8. Run `npm run seed-db` to seed db with data. (Creates admin user. Username and password is in .env file)
 9. Run `npm run dev` to start the server
 
 
 ## Endpoints
 To check endpoint documentation, run the server and go to `http://localhost:3000/api-docs`
+
+## Code style
+1. For code quality and style, we use eslint and prettier
+2. You can run lint `npm run lint` and fix lint issues `npm run lint:fix`
+3. You can configure your editor to use eslint and prettier for better development experience
+
+## Tests
+1. To run all tests, run `npm run test`.
+2. To run integration tests, run `npm run test:integration`
+3. To run unit tests, run `npm run test:unit`
+4. To run acceptance tests, run `npm run test:acceptance`
+
 
 ## Documentation
 [View Improvement Suggestions](docs/improvements.md)

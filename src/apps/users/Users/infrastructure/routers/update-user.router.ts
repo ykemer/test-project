@@ -4,11 +4,12 @@ import {body, param, matchedData} from 'express-validator';
 import {validateRequest} from '/config/infrastructure/middleware/validate-request';
 
 import {updateUserCreator} from 'apps/users/Users/application/useCases/updateUser/update-user';
-import {invalidateUserCache} from 'apps/users/Users/infrastructure/caching/cache-helper';
+
 import {userRepositoryCreator} from 'apps/users/common/infrastructure/persistence/user-repository';
 import {requireRole} from 'config/infrastructure/middleware';
 import {USER_ROLES} from 'libs/dto';
 import {cachingServiceCreator, passwordServiceCreator} from 'libs/tools';
+import {invalidateUserCache} from 'apps/users/common/infrastructure/caching/cache-helper';
 
 const router = express.Router();
 const cachingService = cachingServiceCreator();

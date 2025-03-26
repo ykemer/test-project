@@ -49,11 +49,13 @@ export default [
           pathGroupsExcludedImportTypes: ['builtin'],
         },
       ],
+      'import/no-duplicates': 'error',
       'sort-exports/sort-exports': [
         'error',
         {
           sortDir: 'asc',
           ignoreCase: true,
+          sortExportKindFirst: 'type',
         },
       ],
     },

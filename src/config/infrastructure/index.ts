@@ -5,9 +5,8 @@ import {configureRouters} from 'config/infrastructure/configureRouters';
 import {healthRouter} from 'config/infrastructure/health/health-routes';
 import {swaggerRouter} from 'config/infrastructure/swagger/swagger';
 import {NotFoundError} from 'libs/dto';
-import {createHealthService} from 'libs/tools';
+import {createHealthService, redisClient, sequelize} from 'libs/tools';
 
-import {sequelize} from './db/sequelize';
 import {accessLogger} from './middleware/access-logger';
 import {currentUser} from './middleware/current-user';
 import {errorHandler} from './middleware/error-handler';
@@ -23,7 +22,7 @@ const applyAppConfiguration = (app: Express) => {
 
   configureRouters(app);
   app.use(swaggerRouter);
-  const healthService = createHealthService(sequelize);
+  const healthService = createHealthService(sequelize, redisClient);
   app.use('/_health', healthRouter(healthService));
   app.all('/{*splat}', async () => {
     throw new NotFoundError('Resource not found');

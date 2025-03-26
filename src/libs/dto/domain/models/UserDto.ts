@@ -15,5 +15,5 @@ type UserWithPasswordDto = UserDto & {
   password: string;
 };
 
-export {USER_ROLES};
 export type {UserDto, UserRole, UserWithPasswordDto};
+export {USER_ROLES};
