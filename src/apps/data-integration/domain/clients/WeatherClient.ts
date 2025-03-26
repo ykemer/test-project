@@ -1,4 +1,4 @@
-﻿import {WeatherData} from 'apps/data-integration/domain/model/WeatherData';
+﻿import {WeatherData} from '/apps/data-integration/domain/model/WeatherData';
 
 type WeatherClientInterface = {
   getWeather(city: string, forceRefresh?: boolean): Promise<WeatherData>;

@@ -1,7 +1,7 @@
 ﻿import {getUserProfileCreator} from './getUserProfile';
 
-import {userRepositoryInMemoryCreator} from 'apps/users/common/infrastructure/persistence/user-repository.memory';
-import {userBuilder} from 'apps/users/common/test/builders/userBuilder';
+import {userRepositoryInMemoryCreator} from '/apps/users/common/infrastructure/persistence/user-repository.memory';
+import {userBuilder} from '/apps/users/common/test/builders/userBuilder';
 import {UserWithPasswordDto} from '../../../../../../libs/dto';
 
 const userRepositoryInMemory = userRepositoryInMemoryCreator();

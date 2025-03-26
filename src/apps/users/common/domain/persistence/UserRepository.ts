@@ -1,4 +1,4 @@
-import {PaginatedRequest, UserDto, UserWithPasswordDto} from 'libs/dto';
+import {PaginatedRequest, UserDto, UserWithPasswordDto} from '/libs/dto';
 
 import {UserCreateRequest, UserUpdateRequest} from '../models/User';
 

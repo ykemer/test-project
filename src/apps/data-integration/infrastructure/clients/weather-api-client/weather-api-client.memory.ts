@@ -1,5 +1,5 @@
-﻿import {WeatherClientInterface} from 'apps/data-integration/domain/clients/WeatherClient';
-import {WeatherData} from 'apps/data-integration/domain/model/WeatherData';
+﻿import {WeatherClientInterface} from '/apps/data-integration/domain/clients/WeatherClient';
+import {WeatherData} from '/apps/data-integration/domain/model/WeatherData';
 
 const weatherApiClientInMemoryCreator = (): WeatherClientInterface & {
   output: WeatherData | undefined;

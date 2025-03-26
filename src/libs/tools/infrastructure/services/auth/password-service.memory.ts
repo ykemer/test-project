@@ -1,4 +1,4 @@
-﻿import {PasswordServiceInterface} from 'libs/tools';
+﻿import {PasswordServiceInterface} from '/libs/tools';
 
 const passwordServiceInMemoryCreator = (): PasswordServiceInterface => {
   return {

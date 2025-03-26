@@ -1,11 +1,11 @@
 ﻿import {Router, Request, Response} from 'express';
 import {matchedData, query} from 'express-validator';
 
-import {getIntegratedDataCreator} from 'apps/data-integration/application/useCases/get-integrated-data';
-import {cryptoApiClientCreator} from 'apps/data-integration/infrastructure/clients/crypto-api-client/crypto-api-client';
-import {weatherApiClientCreator} from 'apps/data-integration/infrastructure/clients/weather-api-client/weather-api-client';
-import {requireAuth, validateRequest} from 'config/infrastructure/middleware';
-import {cachingServiceCreator, getLogger} from 'libs/tools';
+import {getIntegratedDataCreator} from '/apps/data-integration/application/useCases/get-integrated-data';
+import {cryptoApiClientCreator} from '/apps/data-integration/infrastructure/clients/crypto-api-client/crypto-api-client';
+import {weatherApiClientCreator} from '/apps/data-integration/infrastructure/clients/weather-api-client/weather-api-client';
+import {requireAuth, validateRequest} from '/config/infrastructure/middleware';
+import {cachingServiceCreator, getLogger} from '/libs/tools';
 
 const router = Router();
 const logger = getLogger();

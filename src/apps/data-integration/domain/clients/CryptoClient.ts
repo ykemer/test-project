@@ -1,4 +1,4 @@
-﻿import {CryptoData} from 'apps/data-integration/domain/model/CryptoData';
+﻿import {CryptoData} from '/apps/data-integration/domain/model/CryptoData';
 
 type CryptoClientInterface = {
   getCryptoPrices(coin: string, forceRefresh?: boolean): Promise<CryptoData>;

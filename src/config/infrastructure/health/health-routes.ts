@@ -1,10 +1,8 @@
 ﻿import {Router, Request, Response} from 'express';
 
-import {HealthService} from 'libs/tools';
-
+import {HealthService} from '/libs/tools';
+const router = Router();
 export const healthRouter = (healthService: HealthService): Router => {
-  const router = Router();
-
   router.get('/', async (_req: Request, res: Response) => {
     const dbConnected = await healthService.checkDatabase();
     const cacheConnected = await healthService.checkCache();

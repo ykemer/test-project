@@ -1,7 +1,7 @@
-﻿import {userRepositoryInMemoryCreator} from 'apps/users/common/infrastructure/persistence/user-repository.memory';
-import {userBuilder} from 'apps/users/common/test/builders/userBuilder';
-import {deleteUserCreator} from 'apps/users/Users/application/useCases/deleteUser/deleteUser';
-import {UserWithPasswordDto} from 'libs/dto';
+﻿import {userRepositoryInMemoryCreator} from '/apps/users/common/infrastructure/persistence/user-repository.memory';
+import {userBuilder} from '/apps/users/common/test/builders/userBuilder';
+import {deleteUserCreator} from '/apps/users/Users/application/useCases/deleteUser/deleteUser';
+import {UserWithPasswordDto} from '/libs/dto';
 
 const userRepositoryInMemory = userRepositoryInMemoryCreator();
 

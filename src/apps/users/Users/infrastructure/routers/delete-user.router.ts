@@ -1,12 +1,12 @@
 import express, {Request, Response} from 'express';
 import {param} from 'express-validator';
 
-import {deleteUserCreator} from 'apps/users/Users/application/useCases/deleteUser/deleteUser';
-import {invalidateUserCache} from 'apps/users/common/infrastructure/caching/cache-helper';
-import {userRepositoryCreator} from 'apps/users/common/infrastructure/persistence/user-repository';
-import {requireRole, validateRequest} from 'config/infrastructure/middleware';
-import {USER_ROLES} from 'libs/dto';
-import {cachingServiceCreator} from 'libs/tools';
+import {deleteUserCreator} from '/apps/users/Users/application/useCases/deleteUser/deleteUser';
+import {invalidateUserCache} from '/apps/users/common/infrastructure/caching/cache-helper';
+import {userRepositoryCreator} from '/apps/users/common/infrastructure/persistence/user-repository';
+import {requireRole, validateRequest} from '/config/infrastructure/middleware';
+import {USER_ROLES} from '/libs/dto';
+import {cachingServiceCreator} from '/libs/tools';
 
 const router = express.Router();
 const cachingService = cachingServiceCreator();

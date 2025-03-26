@@ -1,6 +1,6 @@
-import {UserRepositoryInterface} from 'apps/users/common/domain/persistence/UserRepository';
-import {BadRequestError} from 'libs/dto';
-import {JwtServiceInterface, JwtTokenResponse, PasswordServiceInterface} from 'libs/tools';
+import {UserRepositoryInterface} from '/apps/users/common/domain/persistence/UserRepository';
+import {BadRequestError} from '/libs/dto';
+import {JwtServiceInterface, JwtTokenResponse, PasswordServiceInterface} from '/libs/tools';
 
 type LoginUserDependencies = {
   userRepository: UserRepositoryInterface;

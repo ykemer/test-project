@@ -1,5 +1,5 @@
-import {UserRepositoryInterface} from 'apps/users/common/domain/persistence/UserRepository';
-import {UserDto, PaginatedResponse} from 'libs/dto';
+import {UserRepositoryInterface} from '/apps/users/common/domain/persistence/UserRepository';
+import {UserDto, PaginatedResponse} from '/libs/dto';
 
 type ListUsersDependencies = {
   userRepository: UserRepositoryInterface;

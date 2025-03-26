@@ -1,6 +1,6 @@
-import {UserRepositoryInterface} from 'apps/users/common/domain/persistence/UserRepository';
-import {ConflictError, USER_ROLES} from 'libs/dto';
-import {PasswordServiceInterface} from 'libs/tools';
+import {UserRepositoryInterface} from '/apps/users/common/domain/persistence/UserRepository';
+import {ConflictError, USER_ROLES} from '/libs/dto';
+import {PasswordServiceInterface} from '/libs/tools';
 
 type RegisterUserDependencies = {
   userRepository: UserRepositoryInterface;

@@ -1,5 +1,5 @@
 ﻿import {createRetryDecorator} from './retry-decorator';
-import {BadRequestError} from 'libs/dto';
+import {BadRequestError} from '/libs/dto';
 
 describe('createRetryDecorator', () => {
   it('should return the result if function succeeds on first attempt', async () => {

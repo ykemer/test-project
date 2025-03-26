@@ -1,6 +1,6 @@
 ﻿import {Request} from 'express';
 
-import {CustomError} from 'libs/dto';
+import {CustomError} from '/libs/dto';
 
 const convertErrorToProblemDetails = (err: Error, statusCode: number, req: Request) => {
   const baseUrl = `${req.protocol}://${req.get('host')}`;

@@ -1,7 +1,7 @@
 ﻿import crypto from 'node:crypto';
 
-import {UserRepositoryInterface} from 'apps/users/common/domain/persistence/UserRepository';
-import {UserWithPasswordDto} from 'libs/dto';
+import {UserRepositoryInterface} from '/apps/users/common/domain/persistence/UserRepository';
+import {UserWithPasswordDto} from '/libs/dto';
 
 const userRepositoryInMemoryCreator = (): UserRepositoryInterface & {
   users: UserWithPasswordDto[];

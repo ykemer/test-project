@@ -1,6 +1,6 @@
 ﻿import {Request, Response, NextFunction} from 'express';
 
-import {ForbiddenError, NotAuthorizedError, UserRole} from 'libs/dto';
+import {ForbiddenError, NotAuthorizedError, UserRole} from '/libs/dto';
 
 const requireRole = (roles: UserRole[]) => (req: Request, _res: Response, next: NextFunction) => {
   if (!req.currentUser) {

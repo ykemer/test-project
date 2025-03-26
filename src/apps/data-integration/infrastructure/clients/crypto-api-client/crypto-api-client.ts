@@ -1,6 +1,6 @@
-﻿import {CryptoClientInterface} from 'apps/data-integration/domain/clients/CryptoClient';
-import {NotFoundError} from 'libs/dto';
-import {CachingService, createRetryDecorator, getEnvironmentVariables, Logger} from 'libs/tools';
+﻿import {CryptoClientInterface} from '/apps/data-integration/domain/clients/CryptoClient';
+import {NotFoundError} from '/libs/dto';
+import {CachingService, createRetryDecorator, getEnvironmentVariables, Logger} from '/libs/tools';
 
 import {cryptoApiResponseSchema} from './crypto-api-client.schema';
 import {weatherApiResponseSchema} from '../weather-api-client/weather-api-client.schema';

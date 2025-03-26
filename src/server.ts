@@ -1,14 +1,12 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import express from 'express';
 
 import 'module-alias/register';
-import {applyAppConfiguration} from 'config/infrastructure';
-import {connectRedis} from 'libs/tools';
-
-const app = express();
+import {getConfiguredApp} from '/config/infrastructure';
+import {connectRedis} from '/libs/tools';
 
 const start = async () => {
+  const app = getConfiguredApp();
   await connectRedis();
 
   app.listen(3000, () => {
@@ -17,6 +15,5 @@ const start = async () => {
 };
 
 (async () => {
-  applyAppConfiguration(app);
   await start();
 })();

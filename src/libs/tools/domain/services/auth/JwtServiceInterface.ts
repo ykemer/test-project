@@ -1,4 +1,4 @@
-﻿import {UserDto} from 'libs/dto';
+﻿import {UserDto} from '/libs/dto';
 
 import {JwtTokenResponse} from '../../models';
 

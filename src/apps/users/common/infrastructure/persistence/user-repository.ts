@@ -1,4 +1,4 @@
-﻿import {UserModel} from 'libs/tools';
+﻿import {UserModel} from '/libs/tools';
 
 import {UserRepositoryInterface} from '../../domain/persistence/UserRepository';
 

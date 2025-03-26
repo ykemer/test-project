@@ -1,6 +1,6 @@
 ﻿import {Request, Response, NextFunction} from 'express';
 
-import {getLogger} from 'libs/tools';
+import {getLogger} from '/libs/tools';
 
 const logger = getLogger();
 const accessLogger = (req: Request, res: Response, next: NextFunction) => {

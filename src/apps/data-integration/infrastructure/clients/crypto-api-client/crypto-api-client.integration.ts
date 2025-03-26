@@ -1,7 +1,7 @@
-﻿import {cryptoApiClientCreator} from 'apps/data-integration/infrastructure/clients/crypto-api-client/crypto-api-client';
+﻿import {cryptoApiClientCreator} from '/apps/data-integration/infrastructure/clients/crypto-api-client/crypto-api-client';
 
-import {CryptoClientInterface} from 'apps/data-integration/domain/clients/CryptoClient';
-import {CachingService, Logger} from 'libs/tools';
+import {CryptoClientInterface} from '/apps/data-integration/domain/clients/CryptoClient';
+import {CachingService, Logger} from '/libs/tools';
 
 describe('Crypto API Client Integration Tests', () => {
   let cryptoClient: CryptoClientInterface;

@@ -1,5 +1,5 @@
-﻿import {CryptoClientInterface} from 'apps/data-integration/domain/clients/CryptoClient';
-import {CryptoData} from 'apps/data-integration/domain/model/CryptoData';
+﻿import {CryptoClientInterface} from '/apps/data-integration/domain/clients/CryptoClient';
+import {CryptoData} from '/apps/data-integration/domain/model/CryptoData';
 
 const cryptoApiClientInMemoryCreator = (): CryptoClientInterface & {
   output: CryptoData | undefined;

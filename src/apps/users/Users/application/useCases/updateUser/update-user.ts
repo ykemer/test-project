@@ -1,6 +1,6 @@
-﻿import {UserRepositoryInterface} from 'apps/users/common/domain/persistence/UserRepository';
-import {BadRequestError, NotFoundError, UserWithPasswordDto} from 'libs/dto';
-import {PasswordServiceInterface} from 'libs/tools';
+﻿import {UserRepositoryInterface} from '/apps/users/common/domain/persistence/UserRepository';
+import {BadRequestError, NotFoundError, UserWithPasswordDto} from '/libs/dto';
+import {PasswordServiceInterface} from '/libs/tools';
 
 type UpdateUserDependencies = {
   userRepository: UserRepositoryInterface;

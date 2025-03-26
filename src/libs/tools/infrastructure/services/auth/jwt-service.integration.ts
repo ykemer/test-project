@@ -1,5 +1,5 @@
-﻿import {jwtServiceCreator} from 'libs/tools';
-import {USER_ROLES} from 'libs/dto';
+﻿import {jwtServiceCreator} from '/libs/tools';
+import {USER_ROLES} from '/libs/dto';
 
 describe('JWT Service Integration', () => {
   it('should sign and verify a token end-to-end', () => {

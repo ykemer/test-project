@@ -35,9 +35,10 @@ You can import the insomnia file in the docs folder to test the endpoints
 
 ## Tests
 1. To run all tests, run `npm run test`.
-2. To run integration tests, run `npm run test:integration`
-3. To run unit tests, run `npm run test:unit`
-4. To run acceptance tests, run `npm run test:acceptance`
+2. To run integration tests, run `npm run test:integration:run`
+3. To run unit tests, run `npm run test:unit:run`
+4. To run acceptance tests, run `npm run test:acceptance:run`
+4. To run e2e tests, run `npm run test:e2e:run`
 
 
 ## Documentation

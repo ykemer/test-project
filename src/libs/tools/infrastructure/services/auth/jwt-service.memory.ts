@@ -1,5 +1,5 @@
-﻿import {USER_ROLES} from 'libs/dto';
-import {JwtServiceInterface, JwtTokenResponse} from 'libs/tools';
+﻿import {USER_ROLES} from '/libs/dto';
+import {JwtServiceInterface, JwtTokenResponse} from '/libs/tools';
 
 const jwtServiceInMemory: JwtServiceInterface = {
   getPayload: () => {

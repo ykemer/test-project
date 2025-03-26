@@ -1,6 +1,6 @@
-﻿import {userBuilder} from 'apps/users/common/test/builders/userBuilder';
-import {userRepositoryInMemoryCreator} from 'apps/users/common/infrastructure/persistence/user-repository.memory';
-import {listUsersCreator} from 'apps/users/Users/application/useCases/listUsers/list-users';
+﻿import {userBuilder} from '/apps/users/common/test/builders/userBuilder';
+import {userRepositoryInMemoryCreator} from '/apps/users/common/infrastructure/persistence/user-repository.memory';
+import {listUsersCreator} from '/apps/users/Users/application/useCases/listUsers/list-users';
 
 const userRepositoryInMemory = userRepositoryInMemoryCreator();
 

@@ -4,6 +4,10 @@ import importPlugin from 'eslint-plugin-import';
 import js from '@eslint/js';
 import {FlatCompat} from '@eslint/eslintrc';
 import sortExportsPlugin from 'eslint-plugin-sort-exports';
+import {fileURLToPath} from 'node:url';
+
+const localRulesModule = await import('./tools/eslint/eslint-local-rules.js');
+const localRules = localRulesModule.default || localRulesModule;
 
 const compat = new FlatCompat();
 export default [
@@ -19,11 +23,13 @@ export default [
         project: './tsconfig.json',
       },
     },
-
     plugins: {
       '@typescript-eslint': tseslint,
       import: importPlugin,
       'sort-exports': sortExportsPlugin,
+      'local-rules': {
+        rules: localRules,
+      },
     },
     rules: {
       // Disable no-unused-vars for interfaces and type definitions
@@ -32,14 +38,15 @@ export default [
         'error',
         {
           argsIgnorePattern: '^_',
-          // Ignore parameters in interfaces, type definitions, and function signatures
           ignoreRestSiblings: true,
           destructuredArrayIgnorePattern: '^_',
           caughtErrorsIgnorePattern: '^_',
-          // Add special handling for type definitions
           varsIgnorePattern: '^.*Interface$',
         },
       ],
+      'import/no-unresolved': 'off',
+      'import/no-absolute-path': 'off',
+      'import/custom-module-paths': 'off',
       'import/order': [
         'error',
         {
@@ -50,6 +57,19 @@ export default [
         },
       ],
       'import/no-duplicates': 'error',
+      'local-rules/leading-slash-imports': 'error',
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['apps/*', 'libs/*', 'config/*'],
+              message:
+                'Imports from apps, libs, and config must start with a leading slash (e.g., "/apps/..." instead of "apps/...")',
+            },
+          ],
+        },
+      ],
       'sort-exports/sort-exports': [
         'error',
         {
@@ -68,6 +88,7 @@ export default [
   {
     ignores: [
       '**/build',
+      '**/e2e',
       '**/coverage',
       '**/jest',
       '**/*.jest.config.js',

@@ -1,7 +1,7 @@
 ﻿import {Express} from 'express';
 import {rateLimit} from 'express-rate-limit';
 
-import {RateLimitError} from 'libs/dto';
+import {RateLimitError} from '/libs/dto';
 
 const configureSecurity = (app: Express) => {
   app.use(

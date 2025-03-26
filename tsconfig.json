@@ -43,7 +43,7 @@
     "sourceMap": true
   },
   "include": ["src/**/*", "src/**/*.d.ts"],
-  "exclude": ["node_modules", "src/**/*.acceptance.ts", "src/**/*.unit.ts","src/**/*.integration.ts"],
+  "exclude": ["node_modules", "src/**/*.acceptance.ts", "src/**/*.unit.ts","src/**/*.integration.ts", "e2e/**/*"],
   "files": [
     "src/types/index.d.ts"
   ]

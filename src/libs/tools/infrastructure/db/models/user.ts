@@ -1,6 +1,6 @@
 ﻿import {CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model} from 'sequelize';
 
-import {UserDto, UserWithPasswordDto} from 'libs/dto';
+import {UserDto, UserWithPasswordDto} from '/libs/dto';
 
 import {sequelize} from '../sequelize';
 

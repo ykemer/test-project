@@ -3,9 +3,8 @@
 tsConfigPaths.register({
   baseUrl: './src',
   paths: {
-    'libs/*': ['libs/*'],
     '/libs/*': ['libs/*'],
-    'apps/*': ['apps/*'],
+    '/config/*': ['config/*'],
     '/apps/*': ['apps/*'],
   },
 });

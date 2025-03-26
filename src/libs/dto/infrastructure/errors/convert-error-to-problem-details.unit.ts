@@ -1,5 +1,5 @@
 ﻿import {convertErrorToProblemDetails} from './convert-error-to-problem-details';
-import {BadRequestError} from 'libs/dto';
+import {BadRequestError} from '/libs/dto';
 import {Request} from 'express';
 
 describe('convertErrorToProblemDetails', () => {

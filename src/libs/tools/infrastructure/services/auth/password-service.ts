@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 
-import {PasswordServiceInterface} from 'libs/tools';
+import {PasswordServiceInterface} from '/libs/tools';
 
 const passwordServiceCreator = (): PasswordServiceInterface => {
   return {

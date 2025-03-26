@@ -1,6 +1,6 @@
-import {UserRepositoryInterface} from 'apps/users/common/domain/persistence/UserRepository';
-import {NotFoundError, UserDto} from 'libs/dto';
-import {omit} from 'libs/tools';
+import {UserRepositoryInterface} from '/apps/users/common/domain/persistence/UserRepository';
+import {NotFoundError, UserDto} from '/libs/dto';
+import {omit} from '/libs/tools';
 
 type GetUserProfileDependencies = {
   userRepository: UserRepositoryInterface;

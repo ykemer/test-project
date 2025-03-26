@@ -1,6 +1,6 @@
 ﻿import {Request, Response, NextFunction} from 'express';
 
-import {jwtServiceCreator} from 'libs/tools';
+import {jwtServiceCreator} from '/libs/tools';
 
 const jwtTokenService = jwtServiceCreator();
 const currentUser = (req: Request, _res: Response, next: NextFunction) => {

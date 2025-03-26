@@ -1,7 +1,7 @@
-﻿import {weatherApiClientCreator} from 'apps/data-integration/infrastructure/clients/weather-api-client/weather-api-client';
+﻿import {weatherApiClientCreator} from '/apps/data-integration/infrastructure/clients/weather-api-client/weather-api-client';
 
-import {WeatherClientInterface} from 'apps/data-integration/domain/clients/WeatherClient';
-import {CachingService, Logger} from 'libs/tools';
+import {WeatherClientInterface} from '/apps/data-integration/domain/clients/WeatherClient';
+import {CachingService, Logger} from '/libs/tools';
 
 describe('Weather API Client Integration Tests', () => {
   let weatherClient: WeatherClientInterface;

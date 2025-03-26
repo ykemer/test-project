@@ -1,4 +1,4 @@
-﻿import {passwordServiceCreator} from 'libs/tools';
+﻿import {passwordServiceCreator} from '/libs/tools';
 
 describe('Password Service Integration', () => {
   const passwordService = passwordServiceCreator();

@@ -1,6 +1,6 @@
 ﻿import jwt from 'jsonwebtoken';
 
-import {UserRole} from 'libs/dto';
+import {UserRole} from '/libs/dto';
 
 import {JwtServiceInterface} from '../../../domain/services/auth';
 import {getEnvironmentVariables, isObject, isString} from '../../utils';

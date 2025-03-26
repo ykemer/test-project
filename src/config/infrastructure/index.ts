@@ -1,19 +1,20 @@
 ﻿import {json} from 'body-parser';
-import {Express} from 'express';
 
-import {accessLogger} from 'config/infrastructure//middleware/access-logger';
-import {currentUser} from 'config/infrastructure//middleware/current-user';
-import {errorHandler} from 'config/infrastructure//middleware/error-handler';
-import {healthRouter} from 'config/infrastructure/health/health-routes';
-import {generateTraceId} from 'config/infrastructure/middleware';
-import {configureRouters} from 'config/infrastructure/routes/configureRouters';
-import {configureSecurity} from 'config/infrastructure/security/security';
-import {swaggerRouter} from 'config/infrastructure/swagger/swagger';
-import {NotFoundError} from 'libs/dto';
-import {createHealthService, redisClient, sequelize} from 'libs/tools';
+import {accessLogger} from '/config/infrastructure//middleware/access-logger';
+import {currentUser} from '/config/infrastructure//middleware/current-user';
+import {errorHandler} from '/config/infrastructure//middleware/error-handler';
+import {healthRouter} from '/config/infrastructure/health/health-routes';
+import {generateTraceId} from '/config/infrastructure/middleware';
+import {configureRouters} from '/config/infrastructure/routes/configureRouters';
+import {configureSecurity} from '/config/infrastructure/security/security';
+import {swaggerRouter} from '/config/infrastructure/swagger/swagger';
+import {NotFoundError} from '/libs/dto';
+import {createHealthService, redisClient, sequelize} from '/libs/tools';
 
-const applyAppConfiguration = (app: Express) => {
-  app.set('trust proxy', '1');
+import express from 'express';
+
+const app = express();
+const getConfiguredApp = () => {
   app.use(json());
   configureSecurity(app);
   app.use(generateTraceId);
@@ -29,6 +30,7 @@ const applyAppConfiguration = (app: Express) => {
   });
 
   app.use(errorHandler);
+  return app;
 };
 
-export {applyAppConfiguration};
+export {getConfiguredApp};

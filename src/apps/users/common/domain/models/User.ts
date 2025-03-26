@@ -1,4 +1,4 @@
-import {UserRole} from 'libs/dto';
+import {UserRole} from '/libs/dto';
 
 type User = {
   id: string;

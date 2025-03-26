@@ -1,4 +1,4 @@
-﻿import {BadRequestError} from 'libs/dto';
+﻿import {BadRequestError} from '/libs/dto';
 
 interface RetryOptions {
   maxRetries?: number;

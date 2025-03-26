@@ -1,7 +1,7 @@
 ﻿import {Request, Response, NextFunction} from 'express';
 
-import {convertErrorToProblemDetails, CustomError} from 'libs/dto';
-import {getLogger} from 'libs/tools';
+import {convertErrorToProblemDetails, CustomError} from '/libs/dto';
+import {getLogger} from '/libs/tools';
 
 const logger = getLogger();
 

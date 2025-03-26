@@ -1,5 +1,5 @@
-import {UserRepositoryInterface} from 'apps/users/common/domain/persistence/UserRepository';
-import {NotFoundError} from 'libs/dto';
+import {UserRepositoryInterface} from '/apps/users/common/domain/persistence/UserRepository';
+import {NotFoundError} from '/libs/dto';
 
 type DeleteUserDependencies = {
   userRepository: UserRepositoryInterface;
