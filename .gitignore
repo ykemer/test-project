@@ -5,3 +5,4 @@ build
 .env
 logs
 tests/coverage
+todo.txt
