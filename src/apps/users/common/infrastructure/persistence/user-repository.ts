@@ -1,4 +1,5 @@
 ﻿import {UserModel} from 'libs/tools';
+
 import {UserRepositoryInterface} from '../../domain/persistence/UserRepository';
 
 const userRepositoryCreator = (): UserRepositoryInterface => {

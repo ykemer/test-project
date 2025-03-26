@@ -78,8 +78,7 @@ export default [
       '**/eslint.config.mjs',
       '**/*.mjs',
       '**/tests/*',
-      'src/scripts/*',
-      '*.js',
+      '**/*.js',
     ],
   },
 ];
