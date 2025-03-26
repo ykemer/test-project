@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import 'module-alias/register';
 import {getConfiguredApp} from '/config/infrastructure';
 import {connectRedis} from '/libs/tools';
 

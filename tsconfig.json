@@ -35,10 +35,14 @@
       "./src/types"
     ],
     "baseUrl": ".",
-    "paths": {
-      "*": ["src/*"],
-    },
+    "rootDir": "./src",
     "outDir": "./build",
+    "paths": {
+      "/config/*": ["src/config/*"],
+      "/libs/*": ["src/libs/*"],
+      "/apps/*": ["src/apps/*"]
+    },
+    
     "declaration": true,
     "sourceMap": true
   },
