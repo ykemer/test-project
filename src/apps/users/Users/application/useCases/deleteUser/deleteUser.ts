@@ -1,5 +1,5 @@
 import {UserRepositoryInterface} from 'apps/users/common/domain/persistence/UserRepository';
-import {BadRequestError} from 'libs/dto';
+import {NotFoundError} from 'libs/dto';
 
 type DeleteUserDependencies = {
   userRepository: UserRepositoryInterface;
@@ -17,7 +17,7 @@ const deleteUserCreator =
     const {id} = user;
     const existingUser = await userRepository.findById(id);
     if (!existingUser) {
-      throw new BadRequestError('Invalid user');
+      throw new NotFoundError('Invalid user');
     }
 
     await userRepository.delete(existingUser.id);
