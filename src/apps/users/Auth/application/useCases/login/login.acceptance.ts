@@ -33,7 +33,7 @@ describe('login', () => {
         email: 'non-existing-email',
         password: 'non-existing-password',
       })
-    ).rejects.toThrowError('Invalid credentials');
+    ).rejects.toThrow('Invalid credentials');
   });
 
   it('should throw error when user password does not match', async () => {
@@ -45,7 +45,7 @@ describe('login', () => {
         email: user.email,
         password: 'non-existing-password',
       })
-    ).rejects.toThrowError('Invalid credentials');
+    ).rejects.toThrow('Invalid credentials');
   });
 });
 

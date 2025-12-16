@@ -34,7 +34,7 @@ describe('profile', () => {
       useCase({
         id: 'bad-id',
       })
-    ).rejects.toThrowError();
+    ).rejects.toThrow();
   });
 });
 

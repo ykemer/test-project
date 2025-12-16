@@ -39,7 +39,7 @@ describe('Get Integrated Data Acceptance', () => {
         city: 'Tbilisi',
         currency: 'bitcoin',
       })
-    ).rejects.toThrowError('City not found');
+    ).rejects.toThrow('City not found');
   });
 
   it('should throw error when crypto api client throws an error', async () => {
@@ -51,7 +51,7 @@ describe('Get Integrated Data Acceptance', () => {
         city: 'Tbilisi',
         currency: 'bitcoin',
       })
-    ).rejects.toThrowError('Crypto not found');
+    ).rejects.toThrow('Crypto not found');
   });
 });
 

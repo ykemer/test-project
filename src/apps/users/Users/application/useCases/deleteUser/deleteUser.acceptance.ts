@@ -28,7 +28,7 @@ describe('delete user', () => {
       useCase({
         id: 'bad-id',
       })
-    ).rejects.toThrowError('Invalid user');
+    ).rejects.toThrow('Invalid user');
   });
 });
 

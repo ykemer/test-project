@@ -41,7 +41,7 @@ describe('update user', () => {
           password: 'new password',
         },
       })
-    ).rejects.toThrowError('User not found');
+    ).rejects.toThrow('User not found');
   });
 
   it('should throw error if update request is empty', async () => {
@@ -53,7 +53,7 @@ describe('update user', () => {
         id: user.id,
         updates: {},
       })
-    ).rejects.toThrowError('User could not be updated');
+    ).rejects.toThrow('User could not be updated');
   });
 });
 

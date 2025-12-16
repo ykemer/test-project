@@ -30,4 +30,15 @@ describe('RequestValidationError', () => {
       {message: 'Must be a valid email', field: 'email'},
     ]);
   });
+
+  it('should serialize non-field errors correctly', () => {
+    const validationErrors: ValidationError[] = [
+      {msg: 'Unknown validation error', type: 'unknown', value: 'some value'},
+    ];
+    const error = new RequestValidationError(validationErrors);
+
+    const serializedErrors = error.serializeErrors();
+
+    expect(serializedErrors).toEqual([{message: 'Unknown validation error'}]);
+  });
 });
