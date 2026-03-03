@@ -1,1 +1,1 @@
-﻿export * from './PaginatedResponse';
+﻿export * from './paginated-response';

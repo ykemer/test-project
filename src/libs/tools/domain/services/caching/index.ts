@@ -1,1 +1,1 @@
-﻿export * from './CachingService';
+﻿export * from './caching-service-interface';

@@ -1,9 +1,9 @@
-﻿import {redisClient} from './redis-client';
-import {CachingService} from '../../../domain/services/caching';
+﻿import { redisClient } from './redis-client';
+import { CachingServiceInterface } from '../../../domain/services/caching';
 
 const DEFAULT_EXPIRATION = 3600;
 
-const cachingServiceCreator = (): CachingService => {
+const cachingServiceCreator = (): CachingServiceInterface => {
   return {
     getOrSet: async <T>(
       key: string,

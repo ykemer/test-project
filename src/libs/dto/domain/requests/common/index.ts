@@ -1,1 +1,1 @@
-﻿export * from './PaginatedRequest';
+﻿export * from './paginated-request';

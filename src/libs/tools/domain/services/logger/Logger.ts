@@ -1,4 +1,4 @@
-﻿type Logger = {
+﻿type LoggerServiceInterface = {
   info: (payload: unknown, ...meta: unknown[]) => void;
   debug: (payload: unknown, ...meta: unknown[]) => void;
   alert: (payload: unknown, ...meta: unknown[]) => void;
@@ -6,4 +6,4 @@
   warn: (payload: unknown, ...meta: unknown[]) => void;
 };
 
-export type {Logger};
+export type {LoggerServiceInterface};

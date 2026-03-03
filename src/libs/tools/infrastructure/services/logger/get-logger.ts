@@ -2,12 +2,13 @@
 import path from 'node:path';
 
 import winston from 'winston';
+import { LoggerServiceInterface } from '/libs/tools/domain';
 
-import {Logger} from '../../../domain/services/logger';
 
-let loggerInstance: Logger | null = null;
 
-const getLogger = (): Logger => {
+let loggerInstance: LoggerServiceInterface | null = null;
+
+const getLogger = (): LoggerServiceInterface => {
   if (loggerInstance) {
     return loggerInstance;
   }

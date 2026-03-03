@@ -1,6 +1,6 @@
-﻿type HealthService = {
+﻿type HealthServiceInterface = {
   checkDatabase(): Promise<boolean>;
   checkCache(): Promise<boolean>;
 };
 
-export type {HealthService};
+export type {HealthServiceInterface};

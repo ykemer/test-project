@@ -1,8 +1,8 @@
-﻿import {Sequelize} from 'sequelize';
+﻿import { Sequelize } from 'sequelize';
 
-import {HealthService, RedisClientHealthService} from '../../domain';
+import { HealthServiceInterface, RedisHealthServiceInterface } from '../../domain';
 
-const createHealthService = (db: Sequelize, redisClient: RedisClientHealthService): HealthService => ({
+const createHealthService = (db: Sequelize, redisClient: RedisHealthServiceInterface): HealthServiceInterface => ({
   checkDatabase: async () => {
     try {
       await db.authenticate();

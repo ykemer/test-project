@@ -1,1 +1,1 @@
-﻿export * from './JwtTokenResponse';
+﻿export * from './jwt-token-response';
