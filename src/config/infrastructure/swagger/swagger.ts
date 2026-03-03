@@ -38,7 +38,7 @@ const options = {
             },
             role: {
               type: 'string',
-              enum: ['ADMIN', 'USER'],
+              enum: ['admin', 'user'],
               description: "User's role",
             },
           },
