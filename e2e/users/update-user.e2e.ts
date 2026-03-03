@@ -49,7 +49,7 @@ describe('Users API', () => {
   });
 
   it('should return 404 for non-existent user', async () => {
-    const nonExistentId = '99999999-9999-9999-9999-999999999999';
+    const nonExistentId = 'e6f7dfe5-0fab-42a1-a30f-739c3d11cf41';
 
     return await request(app)
       .patch(`/api/v1/users/${nonExistentId}`)
