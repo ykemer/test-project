@@ -6,7 +6,7 @@ import {userRepositoryCreator} from '/apps/users/common/infrastructure/persisten
 import {validateRequest} from '/config/infrastructure/middleware/validate-request';
 import {cachingServiceCreator, passwordServiceCreator} from '/libs/tools';
 
-import {registerUserCreator} from '../../application/useCases/register/register';
+import {registerUserCreator} from '../../application/usecases/register/register';
 
 const router = express.Router();
 const cachingService = cachingServiceCreator();

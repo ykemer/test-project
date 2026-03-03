@@ -1,9 +1,9 @@
-﻿import {WeatherClientInterface} from '/apps/data-integration/domain/clients/WeatherClient';
-import {weatherApiResponseSchema} from '/apps/data-integration/infrastructure/clients/weather-api-client/weather-api-client.schema';
-import {NotFoundError} from '/libs/dto';
-import {CachingService, createRetryDecorator, getEnvironmentVariables, Logger} from '/libs/tools';
+﻿import { WeatherClientInterface } from '../../../domain/clients/weather-client-interface';
+import { weatherApiResponseSchema } from '/apps/data-integration/infrastructure/clients/weather-api-client/weather-api-client.schema';
+import { NotFoundError } from '/libs/dto';
+import { CachingServiceInterface, createRetryDecorator, getEnvironmentVariables, LoggerServiceInterface } from '/libs/tools';
 
-const weatherApiClientCreator = (cachingService: CachingService, logger: Logger): WeatherClientInterface => {
+const weatherApiClientCreator = (cachingService: CachingServiceInterface, logger: LoggerServiceInterface): WeatherClientInterface => {
   const [WEATHER_API_KEY, API_DATA_EXPIRATION_TIME] = getEnvironmentVariables([
     'WEATHER_API_KEY',
     'API_DATA_EXPIRATION_TIME',

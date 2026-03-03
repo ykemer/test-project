@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express';
 
-import {getUserProfileCreator} from '/apps/users/common/application/useCases/getUserProfile/getUserProfile';
+import {getUserProfileCreator} from '../../../common/application/usecases/get-user-profile/get-user-profile';
 import {userRepositoryCreator} from '/apps/users/common/infrastructure/persistence/user-repository';
 import {requireAuth} from '/config/infrastructure/middleware/require-auth';
 

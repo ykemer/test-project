@@ -1,13 +1,13 @@
-import express, {Request, Response} from 'express';
-import {body, param, matchedData} from 'express-validator';
+import express, { Request, Response } from 'express';
+import { body, param, matchedData } from 'express-validator';
 
-import {updateUserCreator} from '/apps/users/Users/application/useCases/updateUser/update-user';
-import {invalidateUserCache} from '/apps/users/common/infrastructure/caching/cache-helper';
-import {userRepositoryCreator} from '/apps/users/common/infrastructure/persistence/user-repository';
-import {requireRole} from '/config/infrastructure/middleware';
-import {validateRequest} from '/config/infrastructure/middleware/validate-request';
-import {USER_ROLES} from '/libs/dto';
-import {cachingServiceCreator, passwordServiceCreator} from '/libs/tools';
+import { updateUserCreator } from '../../application/usecases/update-user/update-user';
+import { invalidateUserCache } from '/apps/users/common/infrastructure/caching/cache-helper';
+import { userRepositoryCreator } from '/apps/users/common/infrastructure/persistence/user-repository';
+import { requireRole } from '/config/infrastructure/middleware';
+import { validateRequest } from '/config/infrastructure/middleware/validate-request';
+import { USER_ROLES } from '/libs/dto';
+import { cachingServiceCreator, passwordServiceCreator } from '/libs/tools';
 
 const router = express.Router();
 const cachingService = cachingServiceCreator();
@@ -64,7 +64,7 @@ router.patch(
   validateRequest,
   requireRole([USER_ROLES.ADMIN]),
   async (req: Request, res: Response) => {
-    const {id} = req.params;
+    const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
     const validatedData = matchedData(req, {locations: ['body']});
 
     const useCase = updateUserCreator({
@@ -77,7 +77,7 @@ router.patch(
       updates: validatedData,
     });
 
-    await invalidateUserCache(req.params.id, cachingService);
+    await invalidateUserCache(id, cachingService);
     res.status(200).send();
   }
 );

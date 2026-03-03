@@ -1,12 +1,11 @@
-﻿import {weatherApiClientCreator} from '/apps/data-integration/infrastructure/clients/weather-api-client/weather-api-client';
-
-import {WeatherClientInterface} from '/apps/data-integration/domain/clients/WeatherClient';
-import {CachingService, Logger} from '/libs/tools';
+﻿import { LoggerServiceInterface, CachingServiceInterface } from '../../../../../libs/tools';
+import { WeatherClientInterface } from '../../../../data-integration/domain/clients';
+import { weatherApiClientCreator } from './weather-api-client';
 
 describe('Weather API Client Integration Tests', () => {
   let weatherClient: WeatherClientInterface;
-  let mockCachingService: Partial<CachingService>;
-  let mockLogger: Partial<Logger>;
+  let mockCachingService: Partial<CachingServiceInterface>;
+  let mockLogger: Partial<LoggerServiceInterface>;
   let fetchSpy: jest.SpyInstance;
 
   const mockWeatherResponse = {
@@ -51,7 +50,7 @@ describe('Weather API Client Integration Tests', () => {
     process.env.API_DATA_EXPIRATION_TIME = '3600';
 
     // Create client with mocks
-    weatherClient = weatherApiClientCreator(mockCachingService as CachingService, mockLogger as Logger);
+    weatherClient = weatherApiClientCreator(mockCachingService as CachingServiceInterface, mockLogger as LoggerServiceInterface);
   });
 
   afterEach(() => {

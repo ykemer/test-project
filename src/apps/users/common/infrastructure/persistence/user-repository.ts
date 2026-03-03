@@ -1,6 +1,6 @@
-﻿import {UserModel} from '/libs/tools';
+﻿import { UserModel } from '/libs/tools';
 
-import {UserRepositoryInterface} from '../../domain/persistence/UserRepository';
+import { UserRepositoryInterface } from '../../domain/persistence/user-repository-interface';
 
 const userRepositoryCreator = (): UserRepositoryInterface => {
   return {

@@ -1,12 +1,12 @@
-import express, {Request, Response} from 'express';
-import {param} from 'express-validator';
+import express, { Request, Response } from 'express';
+import { param } from 'express-validator';
 
-import {deleteUserCreator} from '/apps/users/Users/application/useCases/deleteUser/deleteUser';
-import {invalidateUserCache} from '/apps/users/common/infrastructure/caching/cache-helper';
-import {userRepositoryCreator} from '/apps/users/common/infrastructure/persistence/user-repository';
-import {requireRole, validateRequest} from '/config/infrastructure/middleware';
-import {USER_ROLES} from '/libs/dto';
-import {cachingServiceCreator} from '/libs/tools';
+import { deleteUserCreator } from '../../application/usecases/delete-user/delete-user';
+import { invalidateUserCache } from '/apps/users/common/infrastructure/caching/cache-helper';
+import { userRepositoryCreator } from '/apps/users/common/infrastructure/persistence/user-repository';
+import { requireRole, validateRequest } from '/config/infrastructure/middleware';
+import { USER_ROLES } from '/libs/dto';
+import { cachingServiceCreator } from '/libs/tools';
 
 const router = express.Router();
 const cachingService = cachingServiceCreator();
@@ -40,17 +40,18 @@ const cachingService = cachingServiceCreator();
  *         description: Server error
  */
 router.delete(
-  '/api/v1/users/{:id}',
+  '/api/v1/users/:id',
   [param('id').isString().notEmpty().isUUID().withMessage('User ID is required')],
   validateRequest,
   requireRole([USER_ROLES.ADMIN]),
   async (req: Request, res: Response) => {
+    const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
     const useCase = deleteUserCreator({
       userRepository: userRepositoryCreator(),
     });
 
-    await useCase({id: req.params.id});
-    await invalidateUserCache(req.params.id, cachingService);
+    await useCase({id});
+    await invalidateUserCache(id, cachingService);
     res.status(204).send();
   }
 );

@@ -1,23 +1,29 @@
-﻿import {userRepositoryInMemoryCreator} from '/apps/users/common/infrastructure/persistence/user-repository.memory';
-import {userBuilder} from '/apps/users/common/test/builders/userBuilder';
-import {deleteUserCreator} from '/apps/users/Users/application/useCases/deleteUser/deleteUser';
-import {UserWithPasswordDto} from '/libs/dto';
+﻿import { getUserProfileCreator } from './get-user-profile';
+
+import { userRepositoryInMemoryCreator } from '../../../../common/infrastructure/persistence/user-repository.memory';
+import { userBuilder } from '../../../../common/test/builders/user-builder';
+import { UserWithPasswordDto } from '../../../../../../libs/dto';
 
 const userRepositoryInMemory = userRepositoryInMemoryCreator();
 
-describe('delete user', () => {
+describe('profile', () => {
   beforeEach(() => {
     userRepositoryInMemory.reset();
   });
 
-  it('should delete user', async () => {
+  it('should return user profile', async () => {
     const user = userBuilder();
     givenValidUser(user);
     const useCase = givenValidUseCase();
-    await useCase({
+    const response = await useCase({
       id: user.id,
     });
-    expect(userRepositoryInMemory.users.length).toEqual(0);
+    expect(response).toEqual({
+      email: 'email',
+      id: 'user-id',
+      name: 'name',
+      role: 'user',
+    });
   });
 
   it('should throw error if id is not correct', async () => {
@@ -28,7 +34,7 @@ describe('delete user', () => {
       useCase({
         id: 'bad-id',
       })
-    ).rejects.toThrow('Invalid user');
+    ).rejects.toThrow();
   });
 });
 
@@ -37,7 +43,7 @@ const givenValidUser = (user: UserWithPasswordDto) => {
 };
 
 const givenValidUseCase = () => {
-  return deleteUserCreator({
+  return getUserProfileCreator({
     userRepository: userRepositoryInMemory,
   });
 };

@@ -1,10 +1,10 @@
-﻿import {loginUserCreator} from './login';
+﻿import { loginUserCreator } from './login';
 
-import {userBuilder} from '/apps/users/common/test/builders/userBuilder';
+import { userBuilder } from '../../../../common/test/builders/user-builder';
 
-import {userRepositoryInMemoryCreator} from '/apps/users/common/infrastructure/persistence/user-repository.memory';
-import {jwtServiceInMemory, passwordServiceInMemoryCreator} from '/libs/tools';
-import {UserWithPasswordDto} from '../../../../../../libs/dto';
+import { userRepositoryInMemoryCreator } from '../../../../common/infrastructure/persistence/user-repository.memory';
+import { jwtServiceInMemory, passwordServiceInMemoryCreator } from '../../../../../../libs/tools';
+import { UserWithPasswordDto } from '../../../../../../libs/dto';
 
 const userRepositoryInMemory = userRepositoryInMemoryCreator();
 

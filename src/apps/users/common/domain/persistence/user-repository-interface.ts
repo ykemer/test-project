@@ -1,6 +1,6 @@
 import {PaginatedRequest, UserDto, UserWithPasswordDto} from '/libs/dto';
 
-import {UserCreateRequest, UserUpdateRequest} from '../models/User';
+import {UserCreateRequest, UserUpdateRequest} from '../models/user';
 
 type UserRepositoryInterface = {
   listUsers: (request: PaginatedRequest) => Promise<{data: UserDto[]; total: number}>;

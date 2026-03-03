@@ -1,12 +1,12 @@
-import express, {Request, Response} from 'express';
-import {param} from 'express-validator';
+import express, { Request, Response } from 'express';
+import { param } from 'express-validator';
 
-import {getUserProfileCreator} from '/apps/users/common/application/useCases/getUserProfile/getUserProfile';
-import {userCacheKeys} from '/apps/users/common/infrastructure/caching/cache-keys';
-import {userRepositoryCreator} from '/apps/users/common/infrastructure/persistence/user-repository';
-import {requireRole, validateRequest} from '/config/infrastructure/middleware';
-import {USER_ROLES} from '/libs/dto';
-import {cachingServiceCreator} from '/libs/tools';
+import { getUserProfileCreator } from '../../../common/application/usecases/get-user-profile/get-user-profile';
+import { userCacheKeys } from '/apps/users/common/infrastructure/caching/cache-keys';
+import { userRepositoryCreator } from '/apps/users/common/infrastructure/persistence/user-repository';
+import { requireRole, validateRequest } from '/config/infrastructure/middleware';
+import { USER_ROLES } from '/libs/dto';
+import { cachingServiceCreator } from '/libs/tools';
 
 const router = express.Router();
 const cachingService = cachingServiceCreator();
@@ -44,18 +44,19 @@ const cachingService = cachingServiceCreator();
  *         description: Server error
  */
 router.get(
-  '/api/v1/users/{:id}',
+  '/api/v1/users/:id',
   [param('id').isString().notEmpty().isUUID().withMessage('User ID is required')],
   validateRequest,
   requireRole([USER_ROLES.ADMIN]),
   async (req: Request, res: Response) => {
-    const userId = req.params.id;
-    const cacheKey = userCacheKeys.single(userId);
+    const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+    const cacheKey = userCacheKeys.single(id);
     const user = await cachingService.getOrSet(cacheKey, async () => {
       const useCase = getUserProfileCreator({
         userRepository: userRepositoryCreator(),
       });
-      return await useCase({id: userId});
+      return await useCase({id});
+
     });
 
     res.status(200).send(user);

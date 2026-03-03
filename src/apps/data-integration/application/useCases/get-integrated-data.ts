@@ -1,6 +1,6 @@
-﻿import {CryptoClientInterface} from '/apps/data-integration/domain/clients/CryptoClient';
-import {WeatherClientInterface} from '/apps/data-integration/domain/clients/WeatherClient';
-import {IntegratedData} from '/apps/data-integration/domain/model/IntegratedData';
+﻿import {CryptoClientInterface} from '../../domain/clients/crypto-client-interface';
+import {WeatherClientInterface} from '../../domain/clients/weather-client-interface';
+import {IntegratedData} from '../../domain/model/integrated-data';
 
 type GetIntegratedDataDependencies = {
   weatherClient: WeatherClientInterface;

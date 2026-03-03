@@ -1,11 +1,10 @@
-﻿import {CryptoClientInterface} from '/apps/data-integration/domain/clients/CryptoClient';
-import {NotFoundError} from '/libs/dto';
-import {CachingService, createRetryDecorator, getEnvironmentVariables, Logger} from '/libs/tools';
+﻿import { cryptoApiResponseSchema } from './crypto-api-client.schema';
+import { NotFoundError } from '/libs/dto';
+import { CachingServiceInterface, createRetryDecorator, getEnvironmentVariables, LoggerServiceInterface } from '/libs/tools';
+import { weatherApiResponseSchema } from '../weather-api-client/weather-api-client.schema';
+import { CryptoClientInterface } from '/apps/data-integration/domain/clients';
 
-import {cryptoApiResponseSchema} from './crypto-api-client.schema';
-import {weatherApiResponseSchema} from '../weather-api-client/weather-api-client.schema';
-
-const cryptoApiClientCreator = (cachingService: CachingService, logger: Logger): CryptoClientInterface => {
+const cryptoApiClientCreator = (cachingService: CachingServiceInterface, logger: LoggerServiceInterface): CryptoClientInterface => {
   const [API_DATA_EXPIRATION_TIME] = getEnvironmentVariables(['API_DATA_EXPIRATION_TIME']);
   const EXPIRATION_TIME = parseInt(API_DATA_EXPIRATION_TIME, 10);
   const fetchCrypto = async (coin: string) => {

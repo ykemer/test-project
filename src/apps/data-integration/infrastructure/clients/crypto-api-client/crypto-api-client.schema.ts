@@ -1,4 +1,4 @@
-﻿import {CryptoApiResponse} from '/apps/data-integration/domain/clients/CryptoClient';
+﻿import {CryptoApiResponse} from '../../../domain/clients/crypto-client-interface';
 import {compileSchema2019, JSONSchemaType} from '/libs/tools';
 
 const CRYPTO_API_RESPONSE_SCHEMA: JSONSchemaType<CryptoApiResponse> = {
